@@ -1,0 +1,10 @@
+body{margin: 0px;}
+
+#mapa{
+    height: 100vh;
+}
+
+#header{
+    text-align: center;
+    font-family: 'Arial', 'sans-serif';  
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Rio do Sul - Modelo 3D</title>
+        <meta property="og:description" content="Demo de webmapa para o município de Rio do Sul, Santa Catarina" />
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css' />
+        <script src='https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.js'></script>
+        <style>
+            body { margin: 0; padding: 0; }
+            html, body, #map { height: 100%; }
+        </style>
+    </head>
+    <body>
+    <div id="map"></div>
+        <script>
+            const bounds = [
+                [-49.7177339999999930,-27.2912900000000000], [-49.5272561999999965,-27.0800390999999969]
+            ]
+            const key = 'Insira sua chave de API aqui criando uma conta em maptiler.com';
+            // a chave fica disponível em https://cloud.maptiler.com/account/keys/
+            // basta copiá-la e colá-la na linha de código acima
+            
+            // lembrando que as tiles podem ser geradas localmente e você mesmo pode hospedar sem depender de um fornecedor
+            // sem a chave o mapa fica apenas em 2D
+            const map = new maplibregl.Map({
+                container: 'map', 
+                maxTileCacheSize: 50000,
+                maxPitch: 60,
+                maxBounds: bounds,
+                minZoom: 9,
+                maxZoom: 17,
+                style: {
+                    'version': 8,
+                    'sources': {
+                        'raster-tiles': {
+                            'type': 'raster',
+                            'tiles': [
+                                './tiles-webp/{z}/{x}/{y}.webp'
+                            ],
+                            'tileSize': 512,
+                            'attribution':
+                                'SDE/SEMA - Governo do Estado de Santa Catarina'
+                        },
+                        'terrainSource': {
+                            'type': 'raster-dem',
+                            'url': 'https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key='+key,
+                            //'tiles': ['./tiles-terrain-rgb/{z}/{x}/{y}.png'],
+                            'tileSize': 512
+                        }            
+                    },
+                    'layers': [
+                        {
+                            'id': 'simple-tiles',
+                            'type': 'raster',
+                            'source': 'raster-tiles',
+                            'minzoom': 9,
+                            'maxzoom': 18
+                        }
+                    ],
+                    terrain: {
+                        source: 'terrainSource',
+                        exaggeration: 2
+                    },
+                },
+                center: [-49.65, -27.2], 
+                zoom: 15, 
+                pitch: 45,
+                terrain: true
+            });
+
+            map.addControl(
+                new maplibregl.NavigationControl({
+                    visualizePitch: true,
+                    showZoom: true,
+                    showCompass: true
+                })
+            );
+
+            map.addControl(
+                new maplibregl.TerrainControl({
+                    source: 'terrainSource',
+                    exaggeration: 2
+                })
+            );
+        </script>
+    </body>
+</html>
