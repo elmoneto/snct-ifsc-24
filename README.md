@@ -1,8 +1,8 @@
+[Capa de apresentação de slides "Mapas na Web e Geotecnologias Livres em letras brancas e fundo com padrão de ondas em tons de azul escuro](capa.jpg)
+
 # Materiais da apresentação "Mapas na Web e Geotecnologias Livres"
 
-## Evento: Semana Nacional de Ciência e Tecnologia do IFSC Câmpus Garopaba 
-
-[Apresentação](https://docs.google.com/presentation/d/1VpveOSKXisrNx0GA5aTF4QJ8yGXha11av-L8JAV-qxk/edit?usp=sharing)
+## Evento: Semana Nacional de Ciência e Tecnologia do IFSC Câmpus Garopaba
 
 Código disponível:
 
@@ -13,3 +13,7 @@ Código disponível:
 ```3d``` Código do mapa com relevo em 3d da cidade de Rio do Sul. Não esqueça de criar sua conta no Maptiler e copiar sua chave de API para dentro do código para que as requisições tenham os arquivos desejados como retorno. Lembrando que esses arquivos podem ser gerados localmente com software livre e disponibilizados em seu próprio servidor.
 
 Não esqueça de usar a extensão Live Server no Codium para não ter problemas de restrição de acesso a arquivos locais, como no carregamento de um GeoJSON, por exemplo: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+
+###
+
+```mobosm2pgr``` Os scripts para download de malha viária e rotas de ônibus com posterior importação para banco de dados PostgreSQL extendido por PostGIS e pgRouting estão neste [repositório](https://github.com/elmoneto/mobosm2pgr).
