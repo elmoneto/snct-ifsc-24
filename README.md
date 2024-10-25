@@ -1,4 +1,4 @@
-[Capa de apresentação de slides "Mapas na Web e Geotecnologias Livres em letras brancas e fundo com padrão de ondas em tons de azul escuro](capa.jpg)
+![Capa de apresentação de slides "Mapas na Web e Geotecnologias Livres" em letras brancas e fundo com padrão de ondas em tons de azul escuro](capa.jpg)
 
 # Materiais da apresentação "Mapas na Web e Geotecnologias Livres"
 
